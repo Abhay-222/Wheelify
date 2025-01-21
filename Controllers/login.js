@@ -63,6 +63,7 @@ const login = async (req, res) => {
         httpOnly: true,
       };
       console.log(token);
+      /*--8--*/
       res.cookie("token", token,options).status(200).json({
         success: true,
         token,

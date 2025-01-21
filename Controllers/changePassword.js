@@ -1,4 +1,4 @@
-import User from "../Models/User.js";
+import User from "../../Models/User.js";
 import bcrypt from "bcrypt";
 import mailSender from "../Config/mailSender.js";
 
@@ -8,12 +8,12 @@ import mailSender from "../Config/mailSender.js";
 
 const changePassword = async (req, res) => {
   try {
-    /* 1.Get user data from req.user
-           2.Get old password, new password, and confirm new password from req.body
-           3.Validate old password
-           4.Match new password and confirm new password
-           5.Encrypt and Update password
-           6.Send notification email
+    /*1.Get user data from req.user
+      2.Get old password, new password, and confirm new password from req.body
+      3.Validate old password
+      4.Match new password and confirm new password
+      5.Encrypt and Update password
+      6.Send notification email
     */
 
     /*--1--*/
@@ -58,7 +58,6 @@ const changePassword = async (req, res) => {
       );
       console.log("Email sent successfully:", emailResponse.response);
     } catch (error) {
-      // If there's an error sending the email, log the error and return a 500 (Internal Server Error) error
       console.error("Error occurred while sending email:", error);
       return res.status(500).json({
         success: false,

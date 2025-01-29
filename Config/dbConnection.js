@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import dotenv from "dotenv";
 dotenv.config();
 
-const dbConnect = () => {
+const dbConnection  = () => {
     mongoose.connect(process.env.MONGODB_URI, {
         // useNewurlParser:true,
         // useUnifiedTopology:true
@@ -16,4 +16,4 @@ const dbConnect = () => {
     });
 }
 
-export default dbConnect;
+export default dbConnection;

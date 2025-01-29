@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-import dbConnect from "./config/dbConnection.js";
+import dbConnection from "./config/dbConnection.js";
 import loginSignup from "./Routes/loginSignup.js";
 import profile from "./Routes/profile.js";
 import provider from "./Routes/provider.js";
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 //connect db
-dbConnect();
+dbConnection();
 
 //mount router
 app.use("/api/v1", loginSignup);

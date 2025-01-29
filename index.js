@@ -1,10 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import dbConnect from "./config/dbConnection.js";
-import auth from "./Routes/auth.js";
+import loginSignup from "./Routes/loginSignup.js";
+import profile from "./Routes/profile.js";
+import provider from "./Routes/provider.js";
+import renter from "./Routes/renter.js";
+import ratingAndReviews from "./Routes/ratingAndReviews.js";
 import cookieParser from "cookie-parser";
-import cloudinaryConnect from "./Config/cloudinaryConnection.js";
-import fileUpload from "express-fileupload";
 dotenv.config();
 
 const app = express();
@@ -17,10 +19,11 @@ app.use(cookieParser());
 dbConnect();
 
 //mount router
-app.use("/api/v1", auth);
-
-//connect cloudinary
-cloudinaryConnect();
+app.use("/api/v1", loginSignup);
+app.use("/api/v1", profile);
+app.use("/api/v1", provider);
+app.use("/api/v1", renter);
+app.use("/api/v1", ratingAndReviews);
 
 //start server
 app.listen(PORT, () => {

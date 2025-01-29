@@ -1,0 +1,18 @@
+import express from "express";
+import signup from "../Controllers/LoginAndSignup/signup.js";
+import generateOTP from "../Controllers/LoginAndSignup/generateOTP.js";
+import login from "../Controllers/LoginAndSignup/login.js";
+import changePassword from "../Controllers/LoginAndSignup/changePassword.js";
+import auth from "../Middlewares/auth.js";
+import { resetPassword, resetPasswordToken } from "../Controllers/LoginAndSignup/resetPassword.js";
+
+const router = express.Router();
+
+router.post("/login", login);
+router.post("/signup", signup);
+router.post("/generate-otp", generateOTP);
+router.post("/changePassword", auth, changePassword);
+router.post("/reset-password-token", resetPasswordToken);
+router.post("/reset-password", resetPassword);
+
+export default router;

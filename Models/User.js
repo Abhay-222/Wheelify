@@ -18,23 +18,34 @@ const userSchema = new mongoose.Schema({
         required: true,
         ref: "Profile",
     },
-    car:[{
+    registeredBikes:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"Car", 
+        ref:"Bike", 
     }],
-    history:[{
-        type:Number,
+    providedBikes:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Bike", 
     }],
+    rentalHistory: [
+        {
+          bike: { 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Bike" ,
+          },
+          action: { type: String }, 
+          timestamp: { type: Date, default: Date.now },
+        },
+    ],
     token: {
         type: String,
     },
     resetPasswordExpires: {
         type: Date,
     },
-    image: {
-        type: String,
-        required: true,
-    },
+    cart:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Bike", 
+    }]
 });
 
 const User = mongoose.model("User", userSchema);

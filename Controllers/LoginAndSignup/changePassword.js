@@ -1,6 +1,6 @@
 import User from "../../Models/User.js";
 import bcrypt from "bcrypt";
-import mailSender from "../../Config/mailSender.js";
+import mailSender from "../../config/mailSender.js";
 
 // "oldPassword":"12345",
 // "newPassword":"123456",

@@ -1,6 +1,6 @@
 import express from "express";
 import auth from "../Middlewares/auth.js";
-import { upload } from "../Config/multerSetup.js";
+import { upload } from "../config/multerSetup.js";
 import registerBike from "../Controllers/Provider/registerBike.js";
 import showAllRegisteredBikes from "../Controllers/Provider/showAllRegisteredBIkes.js";
 import unregisterBike from "../Controllers/Provider/unregisterBike.js";

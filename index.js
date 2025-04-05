@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-//import dbConnection from "./config/dbConnection.js";
-import mongoose from 'mongoose';
+import dbConnection from "./Config/dbConnection.js";
 import loginSignup from "./Routes/loginSignup.js";
 import profile from "./Routes/profile.js";
 import provider from "./Routes/provider.js";
@@ -16,21 +15,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());
 
-//connect d
-const dbConnection  = () => {
-    mongoose.connect(process.env.MONGODB_URI, {
-        // useNewurlParser:true,
-        // useUnifiedTopology:true
-    })
-    .then(() => {
-        console.log("Connection Successful");
-    })
-    .catch((error) => {
-        console.log("DB Connection Failed");
-        process.exit(1);
-    });
-}
- dbConnection();
+//connect db
+dbConnection();
 
 //mount router
 app.use("/api/v1", loginSignup);

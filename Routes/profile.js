@@ -3,7 +3,7 @@ import updateProfile from "../Controllers/Profile/updateProfile.js";
 import getProfileDetails from "../Controllers/Profile/getProfileDetails.js";
 import deleteProfile from "../Controllers/Profile/deleteProfile.js";
 import auth from "../Middlewares/auth.js";
-import {upload} from "../config/multerSetup.js";
+import {upload} from "../Config/multerSetup.js";
 
 const router = express.Router();
 

@@ -2,7 +2,7 @@ import express from "express";
 import auth from "../Middlewares/auth.js";
 import { upload } from "../Config/multerSetup.js";
 import registerBike from "../Controllers/Provider/registerBike.js";
-import showAllRegisteredBikes from "../Controllers/Provider/showAllRegisteredBIkes.js";
+import showAllRegisteredBikes from "../Controllers/Provider/showAllRegisteredBikes.js";
 import unregisterBike from "../Controllers/Provider/unregisterBike.js";
 import provideBike from "../Controllers/Provider/provideBike.js";
 import removeProvidedBike from "../Controllers/Provider/removeProvidedBike.js";

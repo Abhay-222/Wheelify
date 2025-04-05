@@ -1,5 +1,5 @@
 import User from "../../Models/User.js";
-import mailSender from "../../config/mailSender.js";
+import mailSender from "../../Config/mailSender.js";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
 

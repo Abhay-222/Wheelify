@@ -1,6 +1,6 @@
 import User from "../../Models/User.js";
 import Profile from "../../Models/Profile.js";
-import { uploadOnCloudinary } from "../../config/cloudinaryConnection.js";
+import { uploadOnCloudinary } from "../../Config/cloudinaryConnection.js";
 
 const updateProfile = async (req, res) => {
   try {

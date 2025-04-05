@@ -3,23 +3,7 @@ import updateProfile from "../Controllers/Profile/updateProfile.js";
 import getProfileDetails from "../Controllers/Profile/getProfileDetails.js";
 import deleteProfile from "../Controllers/Profile/deleteProfile.js";
 import auth from "../Middlewares/auth.js";
-// import {upload} from "../config/multerSetup.js";
-
-import multer from "multer";
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "./temp")
-    },
-    filename: function (req, file, cb) {
-      
-      cb(null, file.originalname)
-    }
-  })
-  
-const upload = multer({ 
-    storage, 
-})
+import {upload} from "../config/multerSetup.js";
 
 const router = express.Router();
 

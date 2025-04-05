@@ -1,6 +1,6 @@
 import Bike from "../../Models/Bike.js";
 import User from "../../Models/User.js";
-import { uploadOnCloudinary } from "../../config/cloudinaryConnection.js";
+import { uploadOnCloudinary } from "../../Config/cloudinaryConnection.js";
 
 /*
 

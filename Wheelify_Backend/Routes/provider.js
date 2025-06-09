@@ -2,7 +2,7 @@ import express from "express";
 import auth from "../Middlewares/auth.js";
 import { upload } from "../Config/multerSetup.js";
 import registerBike from "../Controllers/Provider/registerBike.js";
-import showAllRegisteredBikes from "../Controllers/Provider/showAllRegisteredBikes.js";
+import getRegisteredBikes  from "../Controllers/Provider/getRegisteredBikes.js";
 import unregisterBike from "../Controllers/Provider/unregisterBike.js";
 import provideBike from "../Controllers/Provider/provideBike.js";
 import removeProvidedBike from "../Controllers/Provider/removeProvidedBike.js";
@@ -20,7 +20,7 @@ router.post(
   registerBike
 );
 
-router.get("/show-all-registered-bikes", auth, showAllRegisteredBikes);
+router.get("/my-bikes", auth, getRegisteredBikes);
 router.post("/unregister-bike", auth, unregisterBike);
 router.post("/provide-bike", auth, provideBike);
 router.post("/remove-provided-bike", auth, removeProvidedBike);

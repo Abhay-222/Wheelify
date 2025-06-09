@@ -60,8 +60,8 @@ const ProfileDropdown = () => {
           <Link to="/profile" className="flex items-center gap-2 px-4 py-2 hover:bg-green-100">
             <FaUser /> My Profile
           </Link>
-          <Link to="/history" className="flex items-center gap-2 px-4 py-2 hover:bg-green-100">
-            <FaHistory /> History
+          <Link to="/registered-bikes" className="flex items-center gap-2 px-4 py-2 hover:bg-green-100">
+            <FaHistory /> My Registered Bikes
           </Link>
           <Link to="/bookings" className="flex items-center gap-2 px-4 py-2 hover:bg-green-100">
             <FaBook /> My Bookings

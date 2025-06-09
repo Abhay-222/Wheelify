@@ -1,24 +1,40 @@
 import { useState } from 'react';
+import axios from 'axios';
 
-const RegisterBikeForm = ({ addBike }) => {
+const RegisterBikeForm = () => {
   const [showForm, setShowForm] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
 
-    const newBike = {
-      id: Date.now(),
-      company: form.company.value,
-      model: form.model.value,
-      age: form.age.value,
-      thumbnail: form.thumbnail.files[0]?.name || 'No file',
-      ownershipProof: form.ownershipProof.files[0]?.name || 'No file',
-    };
+    const formData = new FormData();
+    formData.append('company', form.company.value);
+    formData.append('model', form.model.value);
+    formData.append('age', form.age.value);
+    formData.append('thumbnail', form.thumbnail.files[0]);
+    formData.append('ownershipProof', form.ownershipProof.files[0]);
 
-    addBike(newBike);
-    form.reset();
-    setShowForm(false);
+    try {
+      const response = await axios.post(
+        'http://localhost:4000/api/v1/register-bike', 
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          withCredentials: true, 
+        }
+      );
+
+      alert('Bike registered successfully!');
+      console.log('Registered bike:', response.data);
+      form.reset();
+      setShowForm(false);
+    } catch (error) {
+      console.error(error.response?.data || error.message);
+      alert(`Failed to register bike: ${error.response?.data?.message || error.message}`);
+    }
   };
 
   return (
@@ -77,6 +93,7 @@ const RegisterBikeForm = ({ addBike }) => {
               name="thumbnail"
               accept="image/*"
               className="w-full p-2 border border-gray-300 rounded bg-white"
+              required
             />
           </div>
 
@@ -87,6 +104,7 @@ const RegisterBikeForm = ({ addBike }) => {
               name="ownershipProof"
               accept=".pdf,image/*"
               className="w-full p-2 border border-gray-300 rounded bg-white"
+              required
             />
             <p className="text-sm text-gray-500 mt-1">
               Please upload a document proving your ownership (receipt, invoice, etc.)

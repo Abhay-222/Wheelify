@@ -15,6 +15,7 @@ import ShareBike from './Pages/ShareBike.jsx';
 import MyProfile from './Pages/MyProfile.jsx';
 import PrivateRoute from './AuthContext/PrivateRoute.jsx';
 import BikeDetails from './components/Bike/BikeDetails.jsx';
+import MyRegisteredBikes from './Pages/MyRegisteredBikes.jsx';
 
 const App = () => {
   const { token } = useContext(AuthContext);
@@ -31,6 +32,12 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
 
         {/* ✅ Protected Routes */}
+        <Route path="/registered-bikes" element={
+          <PrivateRoute>
+            <MyRegisteredBikes />
+          </PrivateRoute>
+        } />
+
         <Route path="/search-bike" element={
           <PrivateRoute>
             <SearchBike />

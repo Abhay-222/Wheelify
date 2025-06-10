@@ -34,16 +34,16 @@ const bikeSchema = new mongoose.Schema({
     type: Number,
   },
   availableTimeFrom: {
-    type: Number,
+    type: Date,
   },
   availableTimeTill: {
-    type: Number,
+    type: Date,
   },
   availableDateFrom: {
-    type: Number,
+    type: Date,
   },
   availableDateTill: {
-    type: Number,
+    type: Date,
   },
   location: {
     type: String,

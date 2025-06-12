@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthContext/AuthContext";
+
+const { token } = useContext(AuthContext);
 
 const SearchForm = () => {
   const [formData, setFormData] = useState({

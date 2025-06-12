@@ -41,7 +41,7 @@ const registerBike = async (req, res) => {
     
     // Upload thumbnail image to Cloudinary
     const thumbnailUploadResponse = await uploadOnCloudinary(thumbnail);
-    if (!thumbnailUploadResponse.url) {
+    if (!thumbnailUploadResponse.secure_url) {
       return res.status(500).json({
         success: false,
         message: "Thumbnail image upload failed.",
@@ -50,7 +50,7 @@ const registerBike = async (req, res) => {
 
     // Upload ownershipProof image to Cloudinary
     const ownershipProofUploadResponse = await uploadOnCloudinary(ownershipProof);
-    if (!ownershipProofUploadResponse.url) {
+    if (!ownershipProofUploadResponse.secure_url) {
       return res.status(500).json({
         success: false,
         message: "Ownership proof image upload failed.",
@@ -62,8 +62,8 @@ const registerBike = async (req, res) => {
       company,
       model,
       age,
-      ownershipProof: ownershipProofUploadResponse.url, // Set ownership proof URL
-      img: thumbnailUploadResponse.url, // Set thumbnail URL
+      ownershipProof: ownershipProofUploadResponse.secure_url, // Set ownership proof URL
+      img: thumbnailUploadResponse.secure_url, // Set thumbnail URL
       Owner: userId,
     });
 

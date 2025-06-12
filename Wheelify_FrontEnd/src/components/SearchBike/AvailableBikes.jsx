@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaCalendarAlt, FaClock, FaEdit, FaMapMarkerAlt } from "react-icons/fa";
 import { AuthContext } from "../../AuthContext/AuthContext";
-const { token } = useContext(AuthContext);
 
 const AvailableBikes = () => {
   const locationState = useLocation().state;
@@ -24,6 +23,7 @@ const AvailableBikes = () => {
   const handleChange = (e) =>
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
+  const { token } = useContext(AuthContext);
   const handleUpdate = async () => {
     try {
       setLoading(true);

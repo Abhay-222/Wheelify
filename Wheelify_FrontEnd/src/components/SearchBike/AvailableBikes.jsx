@@ -25,7 +25,13 @@ const AvailableBikes = () => {
   const handleUpdate = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("https://wheelify-backend.onrender.com/api/v1/search-available-bikes", formData);
+      const { data } = await axios.post("https://wheelify-backend.onrender.com/api/v1/search-available-bikes",
+          formData,
+          {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+      });
       setLoading(false);
       setBikes(data?.bikes || []);
       setShowForm(false);

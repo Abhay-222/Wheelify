@@ -25,7 +25,7 @@ const registerBike = async (req, res) => {
     }
 
     const thumbnailUploadResponse = await uploadOnCloudinary(thumbnail);
-    if (!thumbnailUploadResponse.url) {
+    if (!thumbnailUploadResponse?.url) {
       return res.status(500).json({
         success: false,
         message: "Thumbnail image upload failed.",
@@ -33,7 +33,7 @@ const registerBike = async (req, res) => {
     }
 
     const ownershipProofUploadResponse = await uploadOnCloudinary(ownershipProof);
-    if (!ownershipProofUploadResponse.url) {
+    if (!ownershipProofUploadResponse?.url) {
       return res.status(500).json({
         success: false,
         message: "Ownership proof image upload failed.",

@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://wheelify-frontend.onrender.com',
     credentials: true ,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Cookie']
@@ -26,6 +26,8 @@ app.use(cors({
 
 //connect db
 dbConnection();
+
+app.options('*', cors()); // <-- Add this line before your routes
 
 //mount router
 app.use("/api/v1", loginSignup);

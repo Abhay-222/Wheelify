@@ -22,7 +22,13 @@ const SearchForm = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post("https://wheelify-backend.onrender.com/api/v1/search-available-bikes", formData);
+      const { data } = await axios.post("https://wheelify-backend.onrender.com/api/v1/search-available-bikes",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
       // Always navigate to available-bike regardless of bike count
       navigate("/available-bike", {

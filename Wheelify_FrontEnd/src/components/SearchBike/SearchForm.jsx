@@ -4,8 +4,6 @@ import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaSearch } from "react-icons/fa
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthContext/AuthContext";
 
-const { token } = useContext(AuthContext);
-
 const SearchForm = () => {
   const [formData, setFormData] = useState({
     desiredDate: "",
@@ -21,6 +19,7 @@ const SearchForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const { token } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

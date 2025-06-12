@@ -20,7 +20,7 @@ const MyRegisteredBikes = () => {
   useEffect(() => {
     const fetchBikes = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/v1/my-bikes", {
+        const res = await axios.get("https://wheelify-backend.onrender.com/api/v1/my-bikes", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setBikes(res.data.data);
@@ -56,7 +56,7 @@ const MyRegisteredBikes = () => {
   const handleRevokeService = async (bikeId) => {
     try {
       await axios.post(
-        "http://localhost:4000/api/v1/remove-provided-bike",
+        "https://wheelify-backend.onrender.com/api/v1/remove-provided-bike",
         { bikeId },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -79,7 +79,7 @@ const MyRegisteredBikes = () => {
   const handleFormSubmit = async (bikeId) => {
     try {
       await axios.post(
-        "http://localhost:4000/api/v1/provide-bike",
+        "https://wheelify-backend.onrender.com/api/v1/provide-bike",
         { bikeId, ...formData },
         { headers: { Authorization: `Bearer ${token}` } }
       );

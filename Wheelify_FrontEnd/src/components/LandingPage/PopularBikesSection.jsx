@@ -10,7 +10,7 @@ const PopularBikes = () => {
   useEffect(() => {
     const fetchBikes = async () => {
       try {
-        const response = await axios.get('/api/v1/popular-bikes');
+        const response = await axios.get('https://wheelify-backend.onrender.com/api/v1/popular-bikes');
         setBikes(response.data.slice(0, 4));
       } catch (error) {
         console.error('Error fetching bikes:', error);

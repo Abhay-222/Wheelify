@@ -1,11 +1,11 @@
 import AvailableBikes from "../components/SearchBike/AvailableBikes";
 
-function AvailableBIkesPage() {
+function AvailableBikesPage() {
   return (
     <>
-      <AvailableBIkes/>
+      <AvailableBikes/>
     </>
   );
 }
 
-export default AvailableBikesPage;
+export default AvailableBikesPage;      

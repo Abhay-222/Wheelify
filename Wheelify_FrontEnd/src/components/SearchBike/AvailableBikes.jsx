@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaCalendarAlt, FaClock, FaEdit, FaMapMarkerAlt } from "react-icons/fa";
+import { AuthContext } from "../../AuthContext/AuthContext";
+const { token } = useContext(AuthContext);
 
 const AvailableBikes = () => {
   const locationState = useLocation().state;

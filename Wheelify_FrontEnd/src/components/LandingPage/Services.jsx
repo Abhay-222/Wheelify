@@ -19,7 +19,7 @@ const Testimonials = () => {
 
   const fetchTestimonials = async () => {
     try {
-      const { data } = await axios.get("https://vehicle-rental-wheelify-backend.onrender.com/api/v1/get-top-rating");
+      const { data } = await axios.get("https://wheelify-backend.onrender.com/api/v1/get-top-rating");
 
       if (data.success) {
         setTestimonials(data.data);
@@ -34,7 +34,7 @@ const Testimonials = () => {
   // Fetch user's existing rating
   const fetchUserRating = async () => {
     try {
-      const { data } = await axios.get("https://vehicle-rental-wheelify-backend.onrender.com/api/v1/my-rating", {
+      const { data } = await axios.get("https://wheelify-backend.onrender.com/api/v1/my-rating", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -67,7 +67,7 @@ const Testimonials = () => {
 
   const handleRatingSubmit = async (ratingData) => {
     try {
-      const { data } = await axios.post("https://vehicle-rental-wheelify-backend.onrender.com/api/v1/rate-platform", ratingData, {
+      const { data } = await axios.post("https://wheelify-backend.onrender.com/api/v1/rate-platform", ratingData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

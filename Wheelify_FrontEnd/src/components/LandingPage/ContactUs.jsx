@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Phone, Mail } from 'lucide-react';
 import axios from 'axios';
+import { AuthContext } from "../../AuthContext/AuthContext.jsx";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,8 @@ const ContactUs = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
+  
+  const { token } = useContext(AuthContext);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

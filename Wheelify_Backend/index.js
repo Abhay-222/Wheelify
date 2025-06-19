@@ -28,6 +28,8 @@ app.options('*', cors());
 //connect db
 dbConnection();
 
+app.options('*', cors()); // <-- Add this line before your routes
+
 //mount router
 app.use("/api/v1", loginSignup);
 app.use("/api/v1", profile);

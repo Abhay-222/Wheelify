@@ -51,7 +51,6 @@ if (availableBikes.length === 0) {
 
 export default searchAvailableBikes;
 
-
 // import mongoose from "mongoose";
 // import Bike from "../../Models/Bike.js";
 
@@ -59,63 +58,49 @@ export default searchAvailableBikes;
 //   try {
 //     const { desiredTimeFrom, desiredTimeTill, desiredDate, location } = req.body;
 
-//     // Validate input
 //     if (!desiredTimeFrom || !desiredTimeTill || !desiredDate || !location) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "All fields (desiredTimeFrom, desiredTimeTill, desiredDate, and location) are required.",
-//       });
+//       return res.status(400).json({ success: false, message: "All fields are required." });
 //     }
 
-//     // Parse input to appropriate types
-//     const timeFrom = Number(desiredTimeFrom);
-//     const timeTill = Number(desiredTimeTill);
-//     const date = Number(desiredDate);
+//     const date = new Date(desiredDate);
+//     if (isNaN(date)) {
+//       return res.status(400).json({ success: false, message: "Invalid date format." });
+//     }
 
-//     // Extract user ID from req.user
-//     const currentUserId = req.user.id; // `id` comes from the decoded token
+//     const [fromHour, fromMin] = desiredTimeFrom.split(":").map(Number);
+//     const [tillHour, tillMin] = desiredTimeTill.split(":").map(Number);
+
+//     const timeFrom = new Date(date);
+//     timeFrom.setHours(fromHour, fromMin, 0, 0);
+
+//     const timeTill = new Date(date);
+//     timeTill.setHours(tillHour, tillMin, 0, 0);
+
+//     const currentUserId = req.user?.id;
 //     if (!currentUserId) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "User ID is missing in the request.",
-//       });
+//       return res.status(400).json({ success: false, message: "User ID is missing." });
 //     }
 
-//     console.log("Current User ID:", currentUserId);
-
-//     // Find bikes that match the criteria and are not owned by the current user
 //     const availableBikes = await Bike.find({
 //       status: "provided for rent",
-//       location: location,
+//       location,
 //       availableTimeFrom: { $lte: timeFrom },
 //       availableTimeTill: { $gte: timeTill },
 //       availableDateFrom: { $lte: date },
 //       availableDateTill: { $gte: date },
-//       Owner: { $ne: new mongoose.Types.ObjectId(currentUserId) }, // Ensure proper ObjectId format
+//       Owner: { $ne: new mongoose.Types.ObjectId(currentUserId) },
 //     });
 
-//     // If no bikes are found, return a message
 //     if (availableBikes.length === 0) {
-//       return res.status(404).json({
-//         success: false,
-//         message: "No bikes available matching the specified criteria.",
-//       });
+//       return res.status(404).json({ success: false, message: "No bikes found." });
 //     }
 
-//     // Respond with the list of available bikes
-//     res.status(200).json({
-//       success: true,
-//       message: "Available bikes fetched successfully.",
-//       bikes: availableBikes,
-//     });
+//     res.json({ success: true, bikes: availableBikes });
 //   } catch (error) {
 //     console.error(error);
-//     res.status(500).json({
-//       success: false,
-//       message: "Failed to fetch available bikes.",
-//       error: error.message,
-//     });
+//     res.status(500).json({ success: false, message: "Error", error: error.message });
 //   }
 // };
 
 // export default searchAvailableBikes;
+

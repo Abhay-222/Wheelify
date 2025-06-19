@@ -57,22 +57,16 @@ const MyProfileComponent = () => {
 
   const handleSave = async () => {
     try {
-      const data = new FormData();
-      Object.keys(formData).forEach((key) => {
-        if (formData[key]) data.append(key, formData[key]);
-      });
-      if (selectedImage) {
-        data.append("profilePicture", selectedImage);
-      }
-
-      await axios.put("https://wheelify-backend.onrender.com/api/v1/update-profile", data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
-
+      await axios.put(
+        "https://wheelify-backend.onrender.com/api/v1/update-profile",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        }
+      );
       setEditMode(false);
       window.location.reload();
     } catch (err) {

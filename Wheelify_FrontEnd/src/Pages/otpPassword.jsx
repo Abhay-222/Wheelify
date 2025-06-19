@@ -1,5 +1,5 @@
 import React from 'react';
-import PasswordOtp from '../components/OTP/PassworOtp.jsx';
+import PasswordOtp from '../components/OTP/PasswordOtp.jsx';
 
 const Otp = () => {
   return < PasswordOtp/>;

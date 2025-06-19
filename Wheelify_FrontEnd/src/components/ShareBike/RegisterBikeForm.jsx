@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 const RegisterBikeForm = () => {
   const [showForm, setShowForm] = useState(false);

@@ -16,6 +16,10 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post('https://wheelify-backend.onrender.com/api/v1/login', { email, password }, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         withCredentials: true,
       });
 

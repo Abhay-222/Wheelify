@@ -6,6 +6,7 @@ import login from "../Controllers/LoginAndSignup/login.js";
 import changePassword from "../Controllers/LoginAndSignup/changePassword.js";
 import auth from "../Middlewares/auth.js";
 import { resetPassword, resetPasswordToken } from "../Controllers/LoginAndSignup/resetPassword.js";
+import otpVerificationAndPasswordReset from "../Controllers/LoginAndSignup/otpVerificationAndPasswordReset.js";
 import getPopularBikeList from "../Controllers/LoginAndSignup/getPopularBIkeList.js"
 import deleteAccount from "../Controllers/LoginAndSignup/deletedAccount.js";
 
@@ -14,6 +15,7 @@ const router = express.Router();
 router.post("/login", login);
 router.post("/signup", signup);
 router.post("/otp-verification-and-user-creation", otpVerificationAndUserCreation);
+router.post("/otp-verification-and-password-reset", otpVerificationAndPasswordReset);
 router.post("/generate-otp", generateOTP);
 router.post("/changePassword", auth, changePassword);
 router.post("/reset-password-token", resetPasswordToken);

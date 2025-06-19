@@ -6,7 +6,8 @@ import profile from "./Routes/profile.js";
 import provider from "./Routes/provider.js";
 import renter from "./Routes/renter.js";
 import history from "./Routes/history.js";
-import payment from "./Routes/payment.js"
+import payment from "./Routes/payment.js";
+import platform from "./Routes/platform.js";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 dotenv.config();
@@ -36,6 +37,7 @@ app.use("/api/v1", profile);
 app.use("/api/v1", provider);
 app.use("/api/v1", renter);
 app.use("/api/v1", history);
+app.use("/api/v1", payment);
 app.use("/api/v1", payment);
 
 //start server

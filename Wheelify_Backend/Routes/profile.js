@@ -4,10 +4,11 @@ import getProfileDetails from "../Controllers/Profile/getProfileDetails.js";
 import deleteProfile from "../Controllers/Profile/deleteProfile.js";
 import auth from "../Middlewares/auth.js";
 import {upload} from "../Config/multerSetup.js";
+import sendContactForm from "../Controllers/LoginAndSignup/contactUs.js";
 
 const router = express.Router();
 
-router.post(
+router.put(
     "/update-profile",
     upload.fields([
       {
@@ -21,5 +22,6 @@ router.post(
 
 router.get("/get-profile-details", auth, getProfileDetails);
 router.delete("/delete-profile", auth, deleteProfile);
+router.post('/contact', auth, sendContactForm); 
 
 export default router;

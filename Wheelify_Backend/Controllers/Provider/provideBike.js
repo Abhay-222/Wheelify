@@ -17,6 +17,15 @@ const provideBike = async (req, res) => {
   try {
     const userId = req.user.id;
 
+    // {
+    //   "bikeId":"684448fd628b7954353ec010",
+    //   "rentAmount":"20",
+    //   "availableTimeFrom":"12:30 PM", 
+    //   "availableTimeTill":"06:45 PM", 
+    //   "availableDateFrom":"2025-06-21", 
+    //   "availableDateTill":"2025-06-25",
+    //   "location":"Silchar"
+    // }
     const {
       bikeId,
       rentAmount,
@@ -68,7 +77,7 @@ const provideBike = async (req, res) => {
     // Update user
     user.providedBikes = user.providedBikes || [];
     if (!user.providedBikes.includes(bike._id)) user.providedBikes.push(bike._id);
-    user.rentalHistory.push({ bike: bike._id, action: "provided for rent", timestamp: new Date() });
+
     await user.save();
 
     res.status(201).json({ success: true, message: "Bike provided for rent!", bike });

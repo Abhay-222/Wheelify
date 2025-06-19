@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import RegisterBikeForm from '../components/ShareBike/RegisterBikeForm.jsx';
-// import RegisteredBikesList from '../components/ShareBike/RegisteredBikesList.jsx';
+import MyRegisteredBikes from '../components/ShareBike/RegisteredBikesList .jsx';
 
-const ShareBike = () => {
+const ShareBikePage = () => {
   const [bikes, setBikes] = useState([]);
 
   const addBike = (bike) => {
@@ -18,10 +18,10 @@ const ShareBike = () => {
         </p>
 
         <RegisterBikeForm addBike={addBike} />
-        {/* <RegisteredBikesList bikes={bikes} />  */}
       </div>
+      <MyRegisteredBikes/>
     </section>
   );
 };
 
-export default ShareBike;
+export default ShareBikePage;

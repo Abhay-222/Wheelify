@@ -7,6 +7,7 @@ import changePassword from "../Controllers/LoginAndSignup/changePassword.js";
 import auth from "../Middlewares/auth.js";
 import { resetPassword, resetPasswordToken } from "../Controllers/LoginAndSignup/resetPassword.js";
 import getPopularBikeList from "../Controllers/LoginAndSignup/getPopularBIkeList.js"
+import deleteAccount from "../Controllers/LoginAndSignup/deletedAccount.js";
 
 const router = express.Router();
 
@@ -18,5 +19,6 @@ router.post("/changePassword", auth, changePassword);
 router.post("/reset-password-token", resetPasswordToken);
 router.post("/reset-password", resetPassword);
 router.get("/popular-bikes", getPopularBikeList);
+router.delete("/delete-account", auth, deleteAccount);
 
 export default router;

@@ -41,7 +41,8 @@ const AvailableBikes = () => {
         "https://wheelify-backend.onrender.com/api/v1/search-available-bikes",
         formData,
         {
-          headers: {
+         headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
           withCredentials: true,

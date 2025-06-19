@@ -53,13 +53,8 @@ const registerBike = async (req, res) => {
       company,
       model,
       age,
-<<<<<<< HEAD
-      ownershipProof: ownershipProofUploadResponse.url,
-      img: thumbnailUploadResponse.url,
-=======
       ownershipProof: ownershipProofUploadResponse.secure_url, // Set ownership proof URL
       img: thumbnailUploadResponse.secure_url, // Set thumbnail URL
->>>>>>> b0a654b1250be9b0f3b0f218d17b5257e970cf3e
       Owner: userId,
       status: "not provided for rent", // ✅ Set default status here explicitly
     });

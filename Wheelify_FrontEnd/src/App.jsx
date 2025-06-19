@@ -22,6 +22,8 @@ import WalletPage from './Pages/Wallet.jsx';
 import BikeDetail from './Pages/BikeDetail.jsx';
 import ScrollToTop from './components/LandingPage/ScrollToTop.jsx';
 import AllProvidedBikes from './Pages/AllProvidedBikes.jsx';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx';
+import PassworOtp from './Pages/otpPassword.jsx';
 import MyBikes from "./Pages/MyBikes.jsx";
 
 const App = () => {
@@ -39,7 +41,9 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/otp" element={<Otp />} />
+          <Route path="/otpVerification" element={<PassworOtp />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
           {/* ✅ Protected Routes */}
           <Route path="/registered-bikes" element={

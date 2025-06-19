@@ -20,7 +20,14 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://wheelify-backend.onrender.com/api/v1/contact', formData); // change base URL if needed
+      const res = await axios.post('https://wheelify-backend.onrender.com/api/v1/contact',
+      formData,
+      {
+          headers: {
+            Authorization: `Bearer ${token}`,
+           },
+          withCredentials: true,
+       }); // change base URL if needed
       if (res.data.success) {
         alert('Thank you for reaching out! We will contact you soon.');
         setFormData({

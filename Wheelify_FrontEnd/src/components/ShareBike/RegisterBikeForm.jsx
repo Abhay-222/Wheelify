@@ -20,7 +20,8 @@ const RegisterBikeForm = () => {
         "https://wheelify-backend.onrender.com/api/v1/register-bike",
         formData,
         {
-          headers: {
+         headers: {
+            Authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
           withCredentials: true,

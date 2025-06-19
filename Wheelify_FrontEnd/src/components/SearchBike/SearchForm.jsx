@@ -25,10 +25,12 @@ const SearchForm = () => {
 
     try {
       const { data } = await axios.post("https://wheelify-backend.onrender.com/api/v1/search-available-bikes",
-                formData,
+              formData,
+              {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
+              },
       );
       if (data.success) {
         navigate("/available-bike", { state: { bikes: data.bikes, form: formData } });

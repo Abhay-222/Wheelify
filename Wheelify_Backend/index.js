@@ -38,7 +38,7 @@ app.use("/api/v1", provider);
 app.use("/api/v1", renter);
 app.use("/api/v1", history);
 app.use("/api/v1", payment);
-app.use("/api/v1", payment);
+app.use("/api/v1", platform);
 
 //start server
 app.listen(PORT, () => {

@@ -31,11 +31,10 @@ const App = () => {
 
   return (
     <Router>
-      {/* ✅ Fixed Header */}
+     
       <ScrollToTop />
       {token ? <HeaderAuth /> : <HeaderNoAuth />}
 
-      {/* ✅ Add top padding to avoid overlap with fixed header */}
       <div className="pt-20 min-h-screen bg-gray-50">
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -45,7 +44,6 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
 
-          {/* ✅ Protected Routes */}
           <Route path="/registered-bikes" element={
             <PrivateRoute>
               <MyRegisteredBikes />
@@ -116,7 +114,6 @@ const App = () => {
         </Routes>
       </div>
 
-      {/* ✅ Footer */}
       <Footer />
     </Router>
   );
